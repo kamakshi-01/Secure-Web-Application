@@ -1,0 +1,39 @@
+{
+  "name": "auth-api",
+  "version": "1.0.0",
+  "description": "A demonstration of authentication with Node.js, JWTs, and Oracle Database",
+  "main": "server.js",
+  "scripts": {
+    "test": "snyk test",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "author": "The Oracle Database Advocates Team",
+  "license": "ISC",
+  "dependencies": {
+    "@snyk/nodejs-runtime-agent": "^1.42.1",
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.4",
+    "body-parser": "^1.12.4",
+    "consolidate": "^0.15.1",
+    "cookie-parser": "^1.4.4",
+    "csurf": "^1.9.0",
+    "express": "^4.12.4",
+    "express-rate-limit": "^3.4.0",
+    "express-session": "^1.15.6",
+    "helmet": "^3.16.0",
+    "helmet-csp": "^2.7.1",
+    "hpp": "^0.2.2",
+    "jsonwebtoken": "^8.0.0",
+    "morgan": "^1.5.3",
+    "multer": "^1.4.1",
+    "node-esapi": "0.0.1",
+    "node-gyp": "^3.8.0",
+    "oracledb": "github:oracle/node-oracledb#v3.1.2",
+    "rebuild": "^0.1.2",
+    "shrinkwrap": "^0.4.0",
+    "snyk": "^1.147.4",
+    "uglify-js": "^3.5.2"
+  },
+  "snyk": true
+}
