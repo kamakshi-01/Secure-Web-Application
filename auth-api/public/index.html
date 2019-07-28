@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		<title>Jeman School</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+
+    </head>
+	<body>
+
+<!-- Header -->
+<header id="header" class="transparent-nav">
+	<div class="container">
+
+		<div class="navbar-header">
+
+
+			<!-- Mobile toggle -->
+			<button class="navbar-toggle">
+				<span></span>
+			</button>
+			<!-- /Mobile toggle -->
+		</div>
+
+			<!-- Navigation -->
+			<nav id="nav">
+				<ul class="main-menu nav navbar-nav navbar-right">
+					<li id="home_li"><a href="/index">Home</a></li>
+					<!-- <li><a href="#">About</a></li>
+					<li><a href="#">Courses</a></li>
+					<li><a href="#">Department</a></li> -->
+					<li id="login"><a data-toggle='modal' data-target='#login_modal'>Login</a></li>
+					<li id="logout" style="display:none"><a href='api/logout/'>Logout</a></li>
+					<li id="contact_li"><a>Contact Us</a></li>
+					<li id="view_details" style="display:none"><a>View Details</a></li>
+					<li id='upload_li' style="display:none" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">Upload
+                  <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><a data-toggle='modal' data-target='#upload_assignment_modal' style="color:grey">Assignments</a></li>
+                  <li><a data-toggle='modal' data-target='#upload_notes_modal' style="color:grey">Notes</a></li>
+                  <li><a data-toggle='modal' data-target='#upload_videos_modal' style="color:grey">Videos</a></li>
+              </ul>
+          </li>
+<!-- //saloni's edit for adding from admin's end -->
+
+					<li id='add_li' style="display:none" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">Add New
+                  <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+								<li><a data-toggle='modal' data-target='#add_event_modal' style="color:grey">Event</a></li>
+								<li><a data-toggle='modal' data-target='#add_course_modal' style="color:grey">Course</a></li>
+								<li><a data-toggle='modal' data-target='#add_department_modal' style="color:grey">Department</a></li>
+								<li id="add_student_li"><a style="color:grey">Student</a></li>
+								<li id="add_faculty_li"><a style="color:grey">Faculty</a></li>
+              </ul>
+          </li>
+				<!-- Saloni's edit to add end
+				saloni's update couse, department edits -->
+
+				<li id='update_li' style="display:none" class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown">Update existing
+								<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+								<li><a data-toggle='modal' data-target='#update_event_modal' style="color:grey">Event</a></li>
+								<li><a data-toggle='modal' data-target='#update_course_modal' style="color:grey">Course</a></li>
+								<li><a data-toggle='modal' data-target='#update_department_modal' style="color:grey">Department</a></li>
+						</ul>
+				</li>
+
+				</ul>
+			</nav>
+			<!-- /Navigation -->
+
+
+	</div>
+</header>
+
+<!-- include login modal -->
+<div id="include_login_modal"></div>
+
+<!-- include uplaod modal -->
+<div id="include_assignment_modal"></div>
+
+<!-- include notes modal -->
+<div id="include_notes_modal"></div>
+
+<!-- include videos modal -->
+<div id="include_videos_modal"></div>
+
+<!-- include add_course modal -->
+<div id="include_add_course_modal"></div>
+
+<!-- include add_department modal -->
+<div id="include_add_department_modal"></div>
+
+<!-- include add_event modal -->
+<div id="include_add_event_modal"></div>
+
+<!-- include update_course modal -->
+<div id="include_update_course_modal"></div>
+
+<!-- include update_department modal -->
+<div id="include_update_department_modal"></div>
+
+<!-- include update_event modal -->
+<div id="include_update_event_modal"></div>
+
+<!-- /Header -->
+
+<!-- main-body -->
+<div id="main_body">
+
+</div>
+<!-- /main-body -->
+
+
+<!-- jQuery Plugins -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/nav.js"></script>
+
+<!-- esapi4js dependencies -->
+<script type="text/javascript" language="JavaScript" src="/esapi4js/lib/log4js.js"></script>
+<!-- esapi4js core -->
+<script type="text/javascript" language="JavaScript" src="/esapi4js/esapi.js"></script>
+<!-- esapi4js i18n resources -->
+<script type="text/javascript" language="JavaScript" src="/esapi4js/resources/i18n/ESAPI_Standard_en_US.properties.js"></script>
+<!-- esapi4js configuration -->
+<script type="text/javascript" language="JavaScript" src="/esapi4js/resources/Base.esapi.properties.js"></script>
+
+<script>
+$(function(){
+	$("#main_body").load("home.html");
+
+
+  $("#include_assignment_modal").load("upload_assignment_modal.html");
+	$("#include_notes_modal").load("upload_notes_modal.html");
+	$("#include_videos_modal").load("upload_videos_modal.html");
+	$("#include_login_modal").load("login_modal.html");
+	$("#include_add_course_modal").load("add_course.html");
+	$("#include_add_department_modal").load("add_department.html");
+	$("#include_add_event_modal").load("add_event.html");
+	$("#include_update_course_modal").load("update_course.html");
+	$("#include_update_department_modal").load("update_department.html");
+	$("#include_update_event_modal").load("update_event.html");
+
+	$('#contact_li').on('click',function(){
+		$("#main_body").load("contact.html");
+	});
+
+	$('#add_student_li').on('click',function(){
+		$("#main_body").load("add_student.html");
+	});
+
+	$('#add_faculty_li').on('click',function(){
+		$("#main_body").load("add_faculty.html");
+	});
+
+	$('#view_details').on('click',function(){
+		$("#main_body").load("view_details.html");
+	});
+
+});
+</script>
+
+<script>
+$(document).ready(function() {
+						var options = {
+										beforeSubmit: showRequest, // pre-submit callback
+										success: showResponse // post-submit callback
+									}; // bind to the form's submit event
+						$('#assignmentFrmUploader').submit(function () {
+							$(this).ajaxSubmit(options); // always return false to prevent standard browser submit and page navigation
+							return false;
+							});
+
+							$('#frmUploader').submit(function () {
+								$(this).ajaxSubmit(options); // always return false to prevent standard browser submit and page navigation
+								return false;
+								});
+
+
+						});
+function showRequest(formData, jqForm, options) { alert('Uploading is starting.'); return true; } // pre-submit callback
+function showResponse(responseText, statusText, xhr, $form) { alert('status: ' + statusText + '\n\nresponseText: \n' + responseText ); } // post-submit callback
+
+
+		let url_1="/api/get_courses_list";
+				fetch(url_1).then(response => response.json())
+				.then( (result) => {
+						console.log('success:', result);
+						let course_list = document.getElementById('course_list');
+
+						var i;
+						let text;
+						for (i = 0; i < result.courses.length; i++) {
+						  text += `<option value="${result.courses[i].course_name}"> `;
+							text += `\n`;
+						}
+						course_list.innerHTML = text;
+				})
+				.catch(error => {
+					console.log('error:', error);
+				});
+
+			let url_2="/api/get_faculty_list";
+					fetch(url_2).then(response => response.json())
+					.then( (result) => {
+							console.log('success:', result);
+							let faculty_list = document.getElementById('faculty_list');
+
+							var i;
+							let text;
+							for (i = 0; i < result.faculty_list.length; i++) {
+							  text += `<option value="${result.faculty_list[i].fname} ${result.faculty_list[i].lname}"> `;
+								text += `\n`;
+							}
+							faculty_list.innerHTML = text;
+					})
+					.catch(error => {
+						console.log('error:', error);
+					});
+
+				let url_3="/api/get_department_list";
+						fetch(url_3).then(response => response.json())
+						.then( (result) => {
+								console.log('success:', result);
+								let department_list = document.getElementById('department_list');
+
+								var i;
+								let text;
+								for (i = 0; i < result.department_list.length; i++) {
+								  text += `<option value="${result.department_list[i].department_name}"> `;
+									text += `\n`;
+								}
+								department_list.innerHTML = text;
+						})
+						.catch(error => {
+							console.log('error:', error);
+						});
+
+				let url_4="/api/get_events_list";
+						fetch(url_4).then(response => response.json())
+						.then( (result) => {
+								console.log('success:', result);
+								let events_list = document.getElementById('events_list');
+
+								var i;
+								let text;
+								for (i = 0; i < result.events_list.length; i++) {
+								  text += `<option value="${result.events_list[i].e_name}"> `;
+									text += `\n`;
+								}
+								events_list.innerHTML = text;
+						})
+						.catch(error => {
+							console.log('error:', error);
+						});
+</script>
+
+
+<script>
+
+
+var now = new Date(),
+    minDate = now.toISOString().substring(0,10);
+
+$('#Edate').prop('min', minDate);
+
+</script>
+
+<script>
+
+
+function f(){
+	console.log("Entered f");
+	let url="/api/get_token";
+      fetch(url).then(response => response.json())
+      .then( (result) => {
+          console.log('success:', result)
+          let div=document.getElementById('test');
+          div.innerHTML=`name: ${result.user.fname}<br/>token: ${result.token}`;
+      })
+      .catch(error => console.log('error:', error));
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!-- Hero-area -->
+<div class="hero-area section">
+
+	<!-- Backgound Image -->
+	<div class="bg-image bg-parallax overlay" style="background-image:url(./img/page-background.jpg)"></div>
+	<!-- /Backgound Image -->
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1 text-center">
+				<ul class="hero-area-tree">
+					<li><a href="index.html">Home</a></li>
+					<li>Add Student</li>
+				</ul>
+				<h1 class="white-text">Add New Student</h1>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- /Hero-area -->
+
+<!-- container -->
+<div class="container">
+
+	<!-- row -->
+	<div class="row">
+
+		<!-- contact form -->
+		<div class="col-md-10 col-md-offset-1">
+				<br>
+				<h4><u>Student Details</u></h4>
+				<br>
+					<form role="form" id="add_student_form"  method="post">
+				<!-- <form role="form" action="/api/insert_student_parent" method="post" onsubmit="return confirm('Is the form filled out correctly?');"> -->
+					<!-- csrf security -->
+					<input type="hidden" name="_csrf" value="{{ csrftoken }}" />
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="s_fname"><h4>First Name : </h4></label></div>
+							<div class="col-sm-9"><input type="text" required class="form-control" name="s_fname" id="s_fname" placeholder="Enter first name"></div>
+						</div>
+          </div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="s_lname"><h4>Last Name : </h4></label></div>
+							<div class="col-sm-9"><input type="text" required class="form-control" name="s_lname" id="s_lname" placeholder="Enter last Name"></div>
+						</div>
+          </div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="s_username"><h4>Username : </h4></label></div>
+							<div class="col-sm-9"><input type="email" required class="form-control" name="s_username" id="s_username" placeholder="Enter username"></div>
+						</div>
+          </div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="s_dob"><h4>Date of birth : </h4></label></div>
+							<div class="col-sm-9"><input type="date" required class="form-control" name="s_dob" id="s_dob"></div>
+						</div>
+          </div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="s_phone"><h4>Phone : </h4></label></div>
+							<div class="col-sm-9"><input type="tel" required class="form-control" name="s_phone" id="s_phone" placeholder="Enter phone number"></div>
+						</div>
+          </div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="s_doj"><h4>Date of joining : </h4></label></div>
+							<div class="col-sm-9"><input type="date" required class="form-control" name="s_doj" id="s_doj"></div>
+						</div>
+          </div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="s_dep_name"><h4>Department Name : </h4></label></div>
+							<div class="col-sm-9">
+								<input type="text" required list='department_list' placeholder="Select Department Name" name="s_dep_name" id="s_dep_name" class="form-control">
+									<datalist id="department_list">
+									</datalist>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="s_semester"><h4>Semester: </h4></label></div>
+							<div class="col-sm-9"><input type="number" required min= "1" max="8" class="form-control" name="s_semester" id="s_semester" placeholder="Enter semester"></div>
+						</div>
+          </div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="s_password"><h4>Password: </h4></label></div>
+							<div class="col-sm-9"><input type="password" required pattern=".{8,}" class="form-control" name="s_password" id="s_password" placeholder="Minimum 8 characters"></div>
+						</div>
+          </div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="s_confirm_pwd"><h4>Confirm Password: </h4></label></div>
+							<div class="col-sm-9"><input type="password" required pattern=".{8,}" class="form-control" name="s_confirm_pwd" id="s_confirm_pwd" placeholder="Re-enter password"></div>
+						</div>
+          </div>
+
+					<br>
+					<h4><u>Parent Details</u></h4>
+					<br>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="p_fname"><h4>First Name : </h4></label></div>
+							<div class="col-sm-9"><input type="text" required class="form-control" name="p_fname" id="p_fname" placeholder="Enter first name"></div>
+						</div>
+          </div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="p_lname"><h4>Last Name : </h4></label></div>
+							<div class="col-sm-9"><input type="text" required class="form-control" name="p_lname" id="p_lname" placeholder="Enter last Name"></div>
+						</div>
+          </div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="p_username"><h4>Username : </h4></label></div>
+							<div class="col-sm-9"><input type="email" required class="form-control" name="p_username" id="p_username" placeholder="Enter username"></div>
+						</div>
+          </div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="p_dob"><h4>Date of birth : </h4></label></div>
+							<div class="col-sm-9"><input type="date" required class="form-control" name="p_dob" id="p_dob"></div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="p_phone"><h4>Phone : </h4></label></div>
+							<div class="col-sm-9"><input type="tel" required class="form-control" name="p_phone" id="p_phone" placeholder="Enter phone number"></div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="p_password"><h4>Password: </h4></label></div>
+							<div class="col-sm-9"><input type="password" required pattern=".{8,}" class="form-control" name="p_password" id="p_password" placeholder="Minimum 8 characters"></div>
+						</div>
+          </div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-3"><label for="p_confirm_pwd"><h4>Confirm Password: </h4></label></div>
+							<div class="col-sm-9"><input type="password" required pattern=".{8,}" class="form-control" name="p_confirm_pwd" id="p_confirm_pwd" placeholder="Re-enter password"></div>
+						</div>
+          </div>
+
+					 <center><button type="submit" class="btn btn-success btn-block main-button">Add Student</button></center>
+					 <br><br>
+
+				</form>
+	 </div>
+
+
+	</div>
+	<!-- /row -->
+
+</div>
+<!-- /container -->
+
+<script>
+	$("form#add_student_form").submit(async function(e) {
+               e.preventDefault();
+            var formData =   {
+                 s_fname: document.getElementById('s_fname').value,
+                 s_lname: document.getElementById('s_lname').value,
+                 s_username: document.getElementById('s_username').value,
+								 s_dob: document.getElementById('s_dob').value,
+                 s_phone: document.getElementById('s_phone').value,
+                 s_doj: document.getElementById('s_doj').value,
+								 s_dep_name: document.getElementById('s_dep_name').value,
+								 s_semester: document.getElementById('s_semester').value,
+								 s_password: document.getElementById('s_password').value,
+								 s_confirm_pwd: document.getElementById('s_confirm_pwd').value,
+								 p_fname: document.getElementById('p_fname').value,
+                 p_lname: document.getElementById('p_lname').value,
+                 p_username: document.getElementById('p_username').value,
+								 p_dob: document.getElementById('p_dob').value,
+								 p_phone: document.getElementById('p_phone').value,
+								 p_password: document.getElementById('p_password').value,
+								 p_confirm_pwd: document.getElementById('p_confirm_pwd').value
+
+                 }
+              doInsertStudentAjax(formData).then( (data) => {
+								if(data.message){
+									alert(data.message);
+								}
+								else{
+									alert("ERROR: Please try again.");
+								}
+									$("#main_body").load("add_student.html");
+              } );
+
+               });
+
+            async function doInsertStudentAjax(args) {
+              let result;
+
+              try {
+                  result = await $.ajax({
+                      url: "/api/insert_student_parent",
+                      method: 'post',
+                      data: args
+                  });
+
+                  return result;
+              } catch (error) {
+                  console.error(error);
+              }
+          }
+</script>

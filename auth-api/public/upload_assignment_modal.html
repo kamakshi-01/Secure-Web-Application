@@ -1,0 +1,36 @@
+<div class="container">
+
+<!-- Trigger the modal with a button -->
+<!-- <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="upload_assignment_modal" role="dialog">
+<div class="modal-dialog">
+
+	<!-- Modal content-->
+	<div class="modal-content">
+		<div class="modal-header" style="padding:35px 50px;">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 style="color:white">Upload Assignment</h4>
+		</div>
+		<div class="modal-body" style="padding:40px 50px;">
+			<form id="assignmentFrmUploader" action="/api/upload_assignment" method="post" enctype="multipart/form-data">
+				<div class="form-group">
+					<label for="course_name">Course</label>
+					<input type="text" required list='course_list' placeholder="Select Course" name="course_name" id="course_name" class="form-control">
+						<datalist id="course_list">
+						</datalist>
+				</div>
+				<br>
+				<div class="form-group">
+					<input type="file" name="assignmentFileUploader" multiple />
+				</div>
+				<br>
+					<button type="submit" class="btn btn-success btn-block main-button">Upload</button>
+			</form>
+		</div>
+	</div>
+
+</div>
+</div>
+</div>

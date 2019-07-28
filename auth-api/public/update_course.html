@@ -1,0 +1,110 @@
+<div class="container">
+
+  <!-- Trigger the modal with a button -->
+   <!-- <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button> -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="update_course_modal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 style="color:white">Update Course</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+            <form role="form" id="update_course_form" method="post">
+
+          <!-- <form role="form" action="/api/update_course" method="post" onsubmit="return confirm('Is the form filled out correctly?');"> -->
+
+            <!-- csrf security -->
+                        <input type="hidden" name="_csrf" value="{{ csrftoken }}" />
+            <div class="form-group">
+              <label for="c_update_name">Course Name</label>
+              <input type="text" required list='course_list' class="form-control" name="c_update_name" id="c_update_name" placeholder="Select Course Name">
+    						<datalist id="course_list">
+    						</datalist>
+            </div>
+
+            <div class="form-group">
+              <label for="c_new_name">New Course Name</label>
+              <input type="text" class="form-control" name="c_new_name" id="c_new_name" placeholder="Enter new course name if required">
+            </div>
+
+            <div class="form-group">
+              <label for="c_update_description">Description</label>
+              <input type="text" class="form-control" name = "c_update_description" id="c_update_description" placeholder="Write description here if required">
+            </div>
+
+            <div class="form-group">
+              <label for="c_update_sem">Semester</label>
+              <input type="number" class="form-control" name = "c_update_sem" id="c_update_sem" min= "1" max="8" placeholder="Enter semester if required">
+            </div>
+
+            <div class="form-group">
+              <label for="c_update_dep_name">Department Name</label>
+              <input type="text" list='department_list' placeholder="Select department name if required" name="c_update_dep_name" id="c_update_dep_name" class="form-control">
+    						<datalist id="department_list">
+    						</datalist>
+            </div>
+
+            <div class="form-group">
+              <label for="c_update_fac_name">Faculty Name</label>
+              <input type="text" list='faculty_list' placeholder="Select faculty name if required" name="c_update_fac_name" id="c_update_fac_name" class="form-control">
+    						<datalist id="faculty_list">
+    						</datalist>
+            </div>
+
+            <button type="submit" class="btn btn-success btn-block main-button"> Update</button>
+            <!-- <button type="submit" class="btn btn-success btn-block main-button">Delete</button> -->
+          </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<script>
+    $("form#update_course_form").submit(async function(e) {
+          e.preventDefault();
+       var formData =   {
+         c_name: document.getElementById('c_update_name').value,
+         c_new_name: document.getElementById('c_new_name').value,
+         c_description: document.getElementById('c_update_description').value,
+         sem: document.getElementById('c_update_sem').value,
+         dep_name: document.getElementById('c_update_dep_name').value,
+         fac_name: document.getElementById('c_update_fac_name').value
+            }
+         doUpdateCourseAjax(formData).then( (data) => {
+             if(data.message){
+               alert(data.message);
+             }
+             else{
+               alert("ERROR: Please try again.");
+             }
+
+            window.location.reload();
+         } );
+
+          });
+
+       async function doUpdateCourseAjax(args) {
+         let result;
+
+         try {
+             result = await $.ajax({
+                 url: "/api/update_course",
+                 method: 'post',
+                 data: args
+             });
+
+             return result;
+         } catch (error) {
+             console.error(error);
+         }
+     }
+
+
+</script>

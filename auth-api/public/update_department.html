@@ -1,0 +1,90 @@
+<div class="container">
+
+  <!-- Trigger the modal with a button -->
+   <!-- <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button> -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="update_department_modal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 style="color:white">Update Department</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+            <form id="update_department_form" role="form" method="post">
+          <!-- <form role="form" action="/api/update_department" method="post" onsubmit="return confirm('Is the form filled out correctly?');"> -->
+
+            <!-- csrf security -->
+                        <input type="hidden" name="_csrf" value="{{ csrftoken }}" />
+					<!-- <form role="form">  add onsubmit if required-->
+            <div class="form-group">
+
+              <div class="form-group">
+                <label for="d_update_name">Department Name</label>
+                <input type="text" required list='department_list' class="form-control" name="d_update_name" id="d_update_name" placeholder="Select Department Name">
+        					<datalist id="department_list">
+      						</datalist>
+              </div>
+
+              <div class="form-group">
+                <label for="d_new_name">Department New Name</label>
+                <input type="text" class="form-control" name="d_new_name" id="d_new_name" placeholder="Enter new department name if required">
+        			</div>
+
+              <div class="form-group">
+                <label for="d_update_description">Description</label>
+                <input type="text" class="form-control" name = "d_update_description" id="d_update_description" placeholder="Write description here if required">
+              </div>
+
+            <button type="submit" class="btn btn-success btn-block main-button">Update</button>
+            <!-- <button type="submit" class="btn btn-success btn-block main-button">Delete</button> -->
+          </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<script>
+    $("form#update_department_form").submit(async function(e) {
+          e.preventDefault();
+       var formData =   {
+         d_name: document.getElementById('d_update_name').value,
+         d_new_name: document.getElementById('d_new_name').value,
+         d_description: document.getElementById('d_update_description').value
+            }
+         doUpdateDepartmentAjax(formData).then( (data) => {
+             if(data.message){
+               alert(data.message);
+             }
+             else{
+               alert("ERROR: Please try again.");
+             }
+
+            window.location.reload();
+         } );
+
+          });
+
+       async function doUpdateDepartmentAjax(args) {
+         let result;
+
+         try {
+             result = await $.ajax({
+                 url: "/api/update_department",
+                 method: 'post',
+                 data: args
+             });
+
+             return result;
+         } catch (error) {
+             console.error(error);
+         }
+     }
+
+
+</script>
